@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tachi Palace Casino Resort - Experience luxury, relaxation, and entertainment in the heart of Central California. Book your stay today!">
+    <title>Tachi Palace Casino Resort | Luxury Hotel & Spa in Central California</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #c9a961;
+            --accent-color: #8b7355;
+            --text-light: #f5f5f5;
+            --text-dark: #333;
+            --overlay: rgba(26, 26, 46, 0.7);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .cta-button {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .cta-button:hover {
+            background: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 2rem;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: -2rem auto 3rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .features .section-title {
+            color: var(--text-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Tabs Section */
+        .tabs-section {
+            background: #fff;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            color: var(--text-dark);
+        }
+
+        .tab-button:hover {
+            background: var(--accent-color);
+            color: var(--text-light);
+        }
+
+        .tab-button.active {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .tab-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .tab-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .tab-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Packages Section */
+        .packages {
+            background: #f9f9f9;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .package-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .package-content {
+            padding: 2rem;
+        }
+
+        .package-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .services {
+            background: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1920') center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(26, 26, 46, 0.98);
+                width: 100%;
+                padding: 2rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .tab-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://www.tachipalace.com/wp-content/uploads/2025/04/logo.svg" alt="Tachi Palace Casino Resort">
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1" class="cta-button">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Relax and Unwind in Your Own Way</h1>
+            <p>Experience luxury, comfort, and excitement at Central California's premier resort destination</p>
+            <a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1" class="btn-primary">Reserve Your Stay</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>The Hotel and Spa at Tachi Palace Casino Resort</h2>
+                    <p>In the heart of Central California is an oasis of escape. Among Lemoore's breathtaking views and exciting city life is a place where you can get away from it all to relax and unwind in your own way.</p>
+                    <p>For you, perhaps that means a quiet spa day where you can focus on yourself. Or, maybe you like the thrill of responsible gambling under the flashing lights of a casino. Maybe your idea of a perfect vacation is sliding into a luxurious bed in an amenities-packed suite and not leaving until it's time to check out.</p>
+                    <p>Whatever your bliss is, you'll find it at the resort and spa near you in Tachi Palace Casino Resort. Our staff specializes in providing that Vegas-style life without the heavy price tag. Find everything you love about a getaway resort without the exorbitant resort prices right here.</p>
+                    <p><strong>Book your package today by calling <a href="tel:559-925-5710" style="color: var(--secondary-color);">(559) 925-5710</a></strong></p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Luxury Hotel Room">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="amenities">
+        <div class="container">
+            <h2 class="section-title">World-Class Amenities</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏨</div>
+                    <h3>255 Luxury Suites</h3>
+                    <p>Seven-story hotel with smoke-free rooms, high thread count sheets, 40" HD TVs, and hotel-wide Wi-Fi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💆</div>
+                    <h3>Tranquil Spa</h3>
+                    <p>Experience deep-tissue massage, aromatherapy, and personalized treatments from experienced masseuses</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎰</div>
+                    <h3>24/7 Casino</h3>
+                    <p>Enjoy responsible gaming under flashing lights in a casino that never sleeps</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏊</div>
+                    <h3>Heated Pool</h3>
+                    <p>Take a dip in our heated outdoor pool and soak up the California sunshine</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Fine Dining</h3>
+                    <p>Multiple dining options to satisfy every craving and occasion</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Gift Shop</h3>
+                    <p>Unique souvenirs, stylish apparel, and exclusive memorabilia in our hotel lobby</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="tabs-section">
+        <div class="container">
+            <h2 class="section-title">Discover More</h2>
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'gift-shop')">Gift Shop</button>
+                <button class="tab-button" onclick="openTab(event, 'rooms')">Hotel Rooms</button>
+                <button class="tab-button" onclick="openTab(event, 'spa')">Spa Services</button>
+            </div>
+
+            <div id="gift-shop" class="tab-content active">
+                <div class="tab-inner">
+                    <div class="tab-text">
+                        <h3>Gift Shop</h3>
+                        <p>Welcome to our Gift Shop, located conveniently in the Hotel Lobby, where excitement extends beyond the gaming floor! Discover a curated collection of unique souvenirs, stylish apparel, luxurious accessories, and exclusive memorabilia that capture the spirit of the casino.</p>
+                        <p>Whether you're looking for a memento to remember your big win, a special gift for someone, or even some everyday essentials, our gift shop offers something for every taste. Come in and take a piece of the casino magic home with you!</p>
+                    </div>
+                    <div class="tab-image">
+                        <img src="https://www.tachipalace.com/wp-content/uploads/2025/05/tachi-gift-shop-935x600.jpg" alt="Tachi Palace Gift Shop">
+                    </div>
+                </div>
+            </div>
+
+            <div id="rooms" class="tab-content">
+                <div class="tab-inner">
+                    <div class="tab-text">
+                        <h3>Experience the Best Resort in Central California</h3>
+                        <p>Tachi Palace's hotel is a seven-story wonder full of the amenities you love. Each of our 255 suites and guest rooms offers a comfortable, quiet reprieve from a busy house and an even busier life.</p>
+                        <p>Here, all you have to do is sit back on our high thread count sheets, turn on one of our 40" HD TVs and relax as we take care of the rest. All our rooms are smoke-free and connect to our hotel-wide Wi-Fi.</p>
+                        <p>Contact us if you're interested in learning more about what our rooms provide.</p>
+                    </div>
+                    <div class="tab-image">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800" alt="Luxury Hotel Room">
+                    </div>
+                </div>
+            </div>
+
+            <div id="spa" class="tab-content">
+                <div class="tab-inner">
+                    <div class="tab-text">
+                        <h3>Make Time for Yourself With a Spa Day</h3>
+                        <p>What's the best part about getting away on a vacation? You get to slow down and focus on yourself! At Tachi Palace, you get to do what you want, and for many people, that's visiting our tranquil spa and letting themselves be pampered.</p>
+                        <p>Reserve a time for an invigorating deep-tissue massage or learn how aromatherapy can influence the body and mind. Our experienced masseuses are ready to help you feel like yourself again.</p>
+                    </div>
+                    <div class="tab-image">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800" alt="Spa Services">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <h2 class="section-title">Special Packages</h2>
+            <p class="section-subtitle">Take advantage of our exclusive packages designed to enhance your stay</p>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <img src="https://www.tachipalace.com/wp-content/uploads/2025/05/Tachi-Relax-and-Unwind-Weekday-Package_720x345_2024.jpg" alt="Relax & Unwind Package" class="package-image">
+                    <div class="package-content">
+                        <h3>Relax & Unwind Package</h3>
+                        <p>Escape the everyday with our specially curated weekday package. Enjoy premium accommodations and exclusive amenities designed for ultimate relaxation.</p>
+                        <a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1" class="btn-primary" style="margin-top: 1rem;">Book Now</a>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="https://www.tachipalace.com/wp-content/uploads/2025/05/CEC-Package_720x345_2024.jpg" alt="Coyote Entertainment Center Package" class="package-image">
+                    <div class="package-content">
+                        <h3>Coyote Entertainment Center Package</h3>
+                        <p>Experience entertainment like never before with our exclusive Coyote Entertainment Center package. Perfect for families and entertainment enthusiasts.</p>
+                        <a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1" class="btn-primary" style="margin-top: 1rem;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🏨 Luxury Accommodations</h3>
+                    <p>255 smoke-free suites and guest rooms with premium bedding, 40" HD TVs, and complimentary Wi-Fi throughout the property.</p>
+                </div>
+                <div class="service-card">
+                    <h3>💆 Spa & Wellness</h3>
+                    <p>Full-service spa offering deep-tissue massage, aromatherapy, and personalized treatments in a tranquil setting.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🎰 Gaming</h3>
+                    <p>24/7 casino with the latest slot machines, table games, and Vegas-style entertainment at Central California prices.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏊 Recreation</h3>
+                    <p>Heated outdoor pool, fitness center, and recreational facilities for guests of all ages.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🍽️ Dining</h3>
+                    <p>Multiple restaurants and bars serving everything from casual bites to fine dining experiences.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🎁 Gift Shop</h3>
+                    <p>Located in the hotel lobby with unique souvenirs, apparel, accessories, and memorabilia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join Us at Tachi Palace</h2>
+            <p>Whether you want to get away or go somewhere new and see what the area has in store, Tachi Palace Casino Resort will be happy to welcome you to our luxurious space.</p>
+            <div class="cta-buttons">
+                <a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1" class="btn-primary">Book Your Stay</a>
+                <a href="tel:559-925-5710" class="btn-secondary">Call Us: (559) 925-5710</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tachi Palace Casino Resort</h3>
+                <p>Your premier destination for luxury, entertainment, and relaxation in Central California.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>17225 Jersey Avenue<br>
+                Lemoore, CA 93245-9760</p>
+                <p>Toll-free: <a href="tel:1-866-472-5223">1-866-472-5223</a></p>
+                <p>Local: <a href="tel:559-924-7751">559-924-7751</a></p>
+                <p><a href="https://maps.app.goo.gl/rSZTDpfaG4y4GUFD8" target="_blank">Get Directions →</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1">Book Now</a>
+                <a href="#about">About Us</a>
+                <a href="#amenities">Amenities</a>
+                <a href="#packages">Packages</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-service">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tachi Palace Casino Resort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Tab Functionality
+        function openTab(evt, tabName) {
+            const tabContent = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove('active');
+            }
+
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 46, 1)';
+            } else {
+                header.style.background = 'rgba(26, 26, 46, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
