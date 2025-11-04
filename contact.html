@@ -384,6 +384,66 @@
             transition: all 0.3s;
         }
 
+        /* Success Banner */
+        .success-banner {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-150%);
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(46, 125, 50, 0.4);
+            z-index: 10000;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .success-banner.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .success-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .success-icon {
+            font-size: 2rem;
+            animation: checkmark 0.6s ease;
+        }
+
+        .success-banner h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .success-banner p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            color: white;
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+            }
+            100% {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -425,6 +485,16 @@
     </style>
 </head>
 <body>
+    <!-- Success Banner -->
+    <div class="success-banner" id="successBanner">
+        <div class="success-banner-content">
+            <div class="success-icon">✓</div>
+            <div>
+                <h3>Message Sent Successfully!</h3>
+                <p id="bannerMessage">Thank you for contacting us. We'll get back to you soon.</p>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
     <header>
         <nav>
@@ -666,29 +736,7 @@
             });
         });
 
-        // Form Submission Handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Check if SMS opt-in is checked
-            const smsOptIn = document.getElementById('smsOptIn').checked;
-            
-            // Here you would typically send the data to your server
-            // For now, we'll just show an alert
-            let message = 'Thank you for your message! We will get back to you soon.';
-            if (smsOptIn) {
-                message += '\n\nYou have been opted in to receive text messages. Reply STOP at any time to unsubscribe.';
-            }
-            
-            alert(message);
-            
-            // Reset the form
-            this.reset();
-        });
+`cat /tmp/new_js.txt`
 
         // Header background on scroll
         window.addEventListener('scroll', () => {
