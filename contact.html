@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Tachi Palace Casino Resort - Get in touch with us for reservations, inquiries, and more">
+    <title>Contact Us | Tachi Palace Casino Resort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #c9a961;
+            --accent-color: #8b7355;
+            --text-light: #f5f5f5;
+            --text-dark: #333;
+            --overlay: rgba(26, 26, 46, 0.7);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #f9f9f9;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .cta-button {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .cta-button:hover {
+            background: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Hero Section */
+        .page-hero {
+            height: 50vh;
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Contact Info Cards */
+        .contact-info-cards {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .info-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #f9f9f9;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            background: #e5e5e5;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Hours & Additional Info */
+        .additional-info {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-box {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .info-box h3 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hours-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(26, 26, 46, 0.98);
+                width: 100%;
+                padding: 2rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://www.tachipalace.com/wp-content/uploads/2025/04/logo.svg" alt="Tachi Palace Casino Resort">
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#amenities">Amenities</a></li>
+                <li><a href="index.html#packages">Packages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1" class="cta-button">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div>
+            <h1>Contact Us</h1>
+            <p>We're here to help you plan your perfect getaway</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info-cards">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">📍</div>
+                            <h3>Visit Us</h3>
+                        </div>
+                        <p><strong>Tachi Palace Casino Resort</strong></p>
+                        <p>17225 Jersey Avenue<br>
+                        Lemoore, CA 93245-9760</p>
+                        <p><a href="https://maps.app.goo.gl/rSZTDpfaG4y4GUFD8" target="_blank">Get Directions →</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">📞</div>
+                            <h3>Call Us</h3>
+                        </div>
+                        <p><strong>Toll-Free:</strong> <a href="tel:1-866-472-5223">1-866-472-5223</a></p>
+                        <p><strong>Local:</strong> <a href="tel:559-924-7751">559-924-7751</a></p>
+                        <p><strong>Hotel Reservations:</strong> <a href="tel:559-925-5710">559-925-5710</a></p>
+                        <p><strong>SMS Support:</strong> <a href="tel:888-752-9772">888-752-9772</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">📧</div>
+                            <h3>Email Us</h3>
+                        </div>
+                        <p><strong>Hotel Reservations:</strong><br>
+                        <a href="mailto:hotelreservations@tachipalace.com">hotelreservations@tachipalace.com</a></p>
+                        <p><strong>General Inquiries:</strong><br>
+                        <a href="mailto:info@tachipalace.com">info@tachipalace.com</a></p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="reservation">Reservation Inquiry</option>
+                                <option value="spa">Spa Services</option>
+                                <option value="event">Special Events</option>
+                                <option value="casino">Casino Information</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 1.5rem;">
+                            <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; font-weight: 400;">
+                                <input type="checkbox" id="smsOptIn" name="smsOptIn" style="margin-top: 0.25rem; width: 18px; height: 18px; cursor: pointer;">
+                                <span style="font-size: 0.95rem; line-height: 1.6;">
+                                    <strong>Yes, I want to receive text messages from Tachi Palace Hotel & Spa</strong><br>
+                                    By checking this box, I agree to receive promotional and informational text messages via 10DLC from Tachi Palace Hotel & Spa regarding hotel stays, special events, booking information, VIP services, spa services, and hotel amenities. I understand that:
+                                    <ul style="margin: 0.5rem 0 0 1.5rem; font-size: 0.9rem;">
+                                        <li>Message frequency varies based on my activity and preferences</li>
+                                        <li>Message and data rates may apply (carrier charges)</li>
+                                        <li>I can reply STOP to opt out at any time</li>
+                                        <li>I can reply HELP for assistance or call <a href="tel:888-752-9772" style="color: var(--secondary-color);">888-752-9772</a></li>
+                                        <li>My mobile information will not be shared with third parties for marketing purposes</li>
+                                        <li>Messages are sent via 10DLC (10-Digit Long Code) for reliable, carrier-approved delivery</li>
+                                    </ul>
+                                    I have read and agree to the <a href="terms-of-service.html" style="color: var(--secondary-color);">SMS Terms & Conditions</a> and <a href="privacy-policy.html" style="color: var(--secondary-color);">Privacy Policy</a>.
+                                </span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.8976891234567!2d-119.78123!3d36.30156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8094f3b9a9a9a9a9%3A0x1234567890abcdef!2s17225%20Jersey%20Ave%2C%20Lemoore%2C%20CA%2093245!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Additional Information -->
+    <section class="additional-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🕐 Front Desk Hours</h3>
+                    <ul class="hours-list">
+                        <li>Open 24 Hours Daily</li>
+                        <li>Check-in: 3:00 PM</li>
+                        <li>Check-out: 11:00 AM</li>
+                        <li>Early check-in available</li>
+                        <li>Late check-out upon request</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎰 Casino Hours</h3>
+                    <ul class="hours-list">
+                        <li>Open 24/7</li>
+                        <li>Age Requirement: 21+</li>
+                        <li>Valid ID Required</li>
+                        <li>Responsible Gaming Available</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>💆 Spa Hours</h3>
+                    <ul class="hours-list">
+                        <li>Monday - Thursday: 10 AM - 8 PM</li>
+                        <li>Friday - Saturday: 9 AM - 9 PM</li>
+                        <li>Sunday: 10 AM - 7 PM</li>
+                        <li>Appointments Recommended</li>
+                        <li>Walk-ins Welcome</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tachi Palace Casino Resort</h3>
+                <p>Your premier destination for luxury, entertainment, and relaxation in Central California.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>17225 Jersey Avenue<br>
+                Lemoore, CA 93245-9760</p>
+                <p>Toll-free: <a href="tel:1-866-472-5223">1-866-472-5223</a></p>
+                <p>Local: <a href="tel:559-924-7751">559-924-7751</a></p>
+                <p><a href="https://maps.app.goo.gl/rSZTDpfaG4y4GUFD8" target="_blank">Get Directions →</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16360&nono=1">Book Now</a>
+                <a href="index.html#about">About Us</a>
+                <a href="index.html#amenities">Amenities</a>
+                <a href="index.html#packages">Packages</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tachi Palace Casino Resort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form Submission Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Check if SMS opt-in is checked
+            const smsOptIn = document.getElementById('smsOptIn').checked;
+            
+            // Here you would typically send the data to your server
+            // For now, we'll just show an alert
+            let message = 'Thank you for your message! We will get back to you soon.';
+            if (smsOptIn) {
+                message += '\n\nYou have been opted in to receive text messages. Reply STOP at any time to unsubscribe.';
+            }
+            
+            alert(message);
+            
+            // Reset the form
+            this.reset();
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 46, 1)';
+            } else {
+                header.style.background = 'rgba(26, 26, 46, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
